@@ -1,0 +1,52 @@
+# Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Unity auto-generated
+/[Aa]ssets/[Aa]ddr[Ee]ssables/DON'T DELETE SETTINGS FILES/
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+Desktop.ini
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# Visual Studio
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+ExportedObj/
+*.csproj
+*.unityproj
+*.sln
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+
+# Build
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# Git LFS (no ignorar, solo trackear)
+# Los binarios van en .gitattributes
