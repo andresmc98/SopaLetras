@@ -21,8 +21,10 @@ namespace Core.Events
         {
             var type = typeof(T);
             
-            if (!_subscribers.ContainsKey(type))
-                _subscribers[type].Remove(callback);
+            if (!_subscribers.TryGetValue(type, out var subscribers))
+                return;
+
+            subscribers.Remove(callback);
         }
 
         public static void Publish<T>(T gameEvent) where T : GameEvent
