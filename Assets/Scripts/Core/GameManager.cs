@@ -20,6 +20,12 @@ namespace Core
             DontDestroyOnLoad(gameObject);
         }
 
+        private void Start()
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu",
+                UnityEngine.SceneManagement.LoadSceneMode.Additive);
+        }
+
         private void OnDestroy()
         {
             EventBus.Clear();
