@@ -1,33 +1,42 @@
 using UnityEngine;
 using TMPro;
+using Core.Events;
 
-/// <summary>
-/// Representa una celda del grid de la sopa de letras.
-/// Contiene la letra y maneja su estado visual.
-/// </summary>
-public class GridCell : MonoBehaviour
+namespace WordSearch
 {
-    [SerializeField] private TextMeshPro _letterText;
-
-    public char Letter { get; private set; }
-    public int Row     { get; private set; }
-    public int Col     { get; private set; }
-
-    public void Init(char letter, int row, int col)
+    public class GridCell : MonoBehaviour
     {
-        Letter = letter;
-        Row    = row;
-        Col    = col;
-        _letterText.text = letter.ToString();
-    }
+        [SerializeField] private TextMeshPro _letterText;
 
-    public void SetHighlight(bool highlighted)
-    {
-        // TODO: cambiar color según estado de selección
-    }
+        public char Letter { get; private set; }
+        public int Row { get; private set; }
+        public int Col { get; private set; }
 
-    public void SetFound(bool found)
-    {
-        // TODO: animación cuando la palabra es encontrada
+        private Color _defaultColor;
+        private Color _highlightColor = Color.yellow;
+        private Color _foundColor = Color.green;
+
+        private void Awake()
+        {
+            _defaultColor = _letterText.color;
+        }
+
+        public void Init(char letter, int row, int col)
+        {
+            Letter = letter;
+            Row = row;
+            Col = col;
+            _letterText.text = letter.ToString();
+        }
+
+        public void SetHighlight(bool highlighted)
+        {
+            _letterText.color = highlighted ? _highlightColor : _defaultColor;
+        }
+
+        public void SetFound(bool found)
+        {
+            _letterText.color = found ? _foundColor : _defaultColor;
+        }
     }
 }
