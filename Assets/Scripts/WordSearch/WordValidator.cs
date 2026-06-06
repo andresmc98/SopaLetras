@@ -29,7 +29,6 @@ namespace WordSearch
         {
             string selectedWord = BuildWord(selectedCells);
             string reversed = Reverse(selectedWord);
-
             string match = _wordsToFind.Contains(selectedWord) ? selectedWord :
                 _wordsToFind.Contains(reversed) ? reversed : null;
 

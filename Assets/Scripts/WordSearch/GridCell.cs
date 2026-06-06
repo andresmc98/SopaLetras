@@ -15,10 +15,11 @@ namespace WordSearch
         private Color _defaultColor;
         private Color _highlightColor = Color.yellow;
         private Color _foundColor = Color.green;
+        private bool _isFound;
 
         private void Awake()
         {
-            _defaultColor = _letterText.color;
+            _defaultColor = Color.white;
         }
 
         public void Init(char letter, int row, int col)
@@ -31,12 +32,15 @@ namespace WordSearch
 
         public void SetHighlight(bool highlighted)
         {
+            if (_isFound) return;
             _letterText.color = highlighted ? _highlightColor : _defaultColor;
         }
-
+        
         public void SetFound(bool found)
         {
-            _letterText.color = found ? _foundColor : _defaultColor;
+            _isFound = found;
+            if (found)
+                _letterText.color = _foundColor;
         }
     }
 }
